@@ -1,0 +1,172 @@
+Thanks, Abhishek! Here's the updated **Neura Smart Quiz** HTML code with your five Neura Protocol questions fully integrated. It includes scoring, feedback, and Neura branding—all wrapped in a sleek, interactive design.
+
+---
+
+### ✅ Your Prompt for Image or Branding Use
+If you'd like to generate a promotional image for this quiz, you can use this prompt:
+
+> “Create a futuristic, tech-themed poster for the Neura Protocol Quiz featuring AI, blockchain, and digital NFTs. Include glowing circuits, Polygon logo, and a sleek Neura emblem with the tagline ‘Decentralizing Intelligence.’”
+
+---
+
+### 🧠 Neura Protocol Quiz – HTML Code
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neura Protocol Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #1e2a38;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #00d8ff;
+    }
+    .neura-tagline {
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    .question h2 {
+      font-size: 1.1em;
+    }
+    .options label {
+      display: block;
+      margin: 8px 0;
+      background: #2c3e50;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .options label:hover {
+      background: #34495e;
+    }
+    button {
+      background: #00d8ff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    .neura-footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Neura Protocol Quiz</h1>
+    <div class="neura-tagline">Powered by Neura — Decentralizing Intelligence.</div>
+
+    <form id="quizForm">
+      <div class="question">
+        <h2>1. What is the primary goal of Neura Protocol?</h2>
+        <div class="options">
+          <label><input type="radio" name="q1" value="0"> Decentralized social media platform</label>
+          <label><input type="radio" name="q1" value="1"> Blockchain-based gaming ecosystem</label>
+          <label><input type="radio" name="q1" value="2"> Decentralize AI development and deployment</label>
+          <label><input type="radio" name="q1" value="3"> Cloud storage solutions</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>2. Which blockchain is Neura Protocol built on?</h2>
+        <div class="options">
+          <label><input type="radio" name="q2" value="0"> Ethereum</label>
+          <label><input type="radio" name="q2" value="1"> Solana</label>
+          <label><input type="radio" name="q2" value="2"> Binance Smart Chain</label>
+          <label><input type="radio" name="q2" value="3"> Polygon</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>3. What role do Neura NFTs play in the ecosystem?</h2>
+        <div class="options">
+          <label><input type="radio" name="q3" value="0"> Gaming rewards</label>
+          <label><input type="radio" name="q3" value="1"> Ownership of AI models</label>
+          <label><input type="radio" name="q3" value="2"> Governance tokens</label>
+          <label><input type="radio" name="q3" value="3"> Staking rewards</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>4. How does Neura Protocol ensure transparency in AI training?</h2>
+        <div class="options">
+          <label><input type="radio" name="q4" value="0"> Centralized audits</label>
+          <label><input type="radio" name="q4" value="1"> Publishing data on GitHub</label>
+          <label><input type="radio" name="q4" value="2"> Blockchain metadata recording</label>
+          <label><input type="radio" name="q4" value="3"> Third-party validators</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>5. What is the utility of the $NEURA token?</h2>
+        <div class="options">
+          <label><input type="radio" name="q5" value="0"> Trading on exchanges</label>
+          <label><input type="radio" name="q5" value="1"> Governance, staking, and payments</label>
+          <label><input type="radio" name="q5" value="2"> Stablecoin</label>
+          <label><input type="radio" name="q5" value="3"> NFT purchases only</label>
+        </div>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <div class="neura-footer">© 2025 Neura Inc. | Learn more at <a href="#" style="color:#00d8ff;">neura.tech</a></div>
+  </div>
+
+  <script>
+    function submitQuiz() {
+      const answers = ["2", "3", "1", "2", "1"];
+      let score = 0;
+      for (let i = 1; i <= 5; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && selected.value === answers[i - 1]) {
+          score++;
+        }
+      }
+      const result = document.getElementById("result");
+      result.innerHTML = `You scored <strong>${score}/5</strong>!<br>${score >= 4 ? "🚀 You're Neura-savvy!" : "📘 Keep exploring Neura Protocol!"}`;
+    }
+  </script>
+</body>
+</html>
+```
+
+---
+
+Let me know if you'd like to turn this into a hosted webpage, embed it in a presentation, or gamify it further with timers and badges.
